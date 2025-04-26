@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="arrow_forward_ios">
+<mask id="mask0_7591_1892" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<rect id="Bounding box" width="24" height="24" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_7591_1892)">
+<path id="arrow_forward_ios_2" d="M8.00001 21.3002L6.95001 20.2502L15.175 12.0002L6.95001 3.7502L8.00001 2.7002L17.325 12.0002L8.00001 21.3002Z" fill="url(#paint0_linear_7591_1892)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_7591_1892" x1="6.95002" y1="12.0002" x2="17.325" y2="12.0002" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E39B24"/>
+<stop offset="1" stop-color="#9C7025"/>
+</linearGradient>
+</defs>
+</svg>

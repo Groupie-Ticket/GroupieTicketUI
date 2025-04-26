@@ -1,0 +1,17 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="diamond">
+<mask id="mask0_8554_2165" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<rect id="Bounding box" width="24" height="24" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_8554_2165)">
+<path id="diamond_2" d="M12.0001 20.2L2.6001 8.925L5.3001 3.5H18.7001L21.4001 8.925L12.0001 20.2ZM8.8251 8.5H15.1751L13.1751 4.5H10.8251L8.8251 8.5ZM11.5001 18.05V9.5H4.4001L11.5001 18.05ZM12.5001 18.05L19.6001 9.5H12.5001V18.05ZM16.3001 8.5H20.0501L18.0501 4.5H14.3001L16.3001 8.5ZM3.9501 8.5H7.7001L9.7001 4.5H5.9501L3.9501 8.5Z" fill="white"/>
+<circle id="Ellipse 1" cx="20" cy="4" r="4" fill="url(#paint0_linear_8554_2165)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_8554_2165" x1="16" y1="3.99999" x2="24" y2="3.99999" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E39B24"/>
+<stop offset="1" stop-color="#9C7025"/>
+</linearGradient>
+</defs>
+</svg>
