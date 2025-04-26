@@ -4,7 +4,7 @@ import Footer from '../partials/Footer/Footer';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />

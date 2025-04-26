@@ -1,8 +1,9 @@
-// src/sections/Navbar/Navbar.jsx
+// src/partials/Navbar/Navbar.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import NavbarTabs from '../../components/NavbarTabs';
+import UserModal from '../../components/UserModal';
 
 import logo from '../../assets/logo.svg';
 import searchIcon from '../../assets/search.svg';
@@ -10,7 +11,6 @@ import diamond from '../../assets/diamond.svg';
 import notifications from '../../assets/notifications.svg';
 import local_mall from '../../assets/local_mall.svg';
 import user from '../../assets/user.svg';
-import UserModal from '../../components/UserModal';
 
 export default function Navbar() {
   const { isLoggedIn } = useAuthStore();
@@ -18,19 +18,21 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full max-w-[1440px] h-20 px-20 inline-flex justify-start items-center relative">
-      <div className="flex-1 self-stretch py-4 flex justify-start items-center gap-6">
+    <div className="w-full h-20 px-20 inline-flex justify-start items-center absolute top-0 left-0 z-50 bg-transparent">
+<div class="flex-1 self-stretch py-4 flex justify-start items-center gap-6">
 
         <img src={logo} alt="Logo" className="w-28 h-12 object-contain relative" />
 
         <div className="w-72 self-stretch px-4 py-2 bg-white rounded-lg flex justify-start items-center">
-          <div className="flex-1 text-zinc-500 text-sm font-normal leading-tight">Buscar evento</div>
-          <img src={searchIcon} alt="Buscar" className="w-6 h-6 ml-2" />
+          <div className="flex-1 justify-center text-zinc-500 text-sm font-normal font-['Open_Sans'] leading-tight">
+            Buscar evento
+          </div>
+          <img src={searchIcon} alt="Buscar" className="w-6 h-6" />
         </div>
 
-        <NavbarTabs />
-
         <div className="flex-1 flex justify-end items-center gap-6">
+          <NavbarTabs />
+
           {isLoggedIn ? (
             <>
               <img src={diamond} alt="Diamond" className="w-6 h-6" />
@@ -46,13 +48,15 @@ export default function Navbar() {
           ) : (
             <>
               <div
-                className="text-white text-base font-normal leading-normal cursor-pointer"
+                className="text-white text-base font-normal font-['Open_Sans'] leading-normal cursor-pointer"
                 onClick={() => navigate('/login')}
               >
                 Inicia sesión
               </div>
-              <div className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-700 rounded-lg text-white text-base leading-normal cursor-pointer">
-                Regístrate
+              <div className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-700 rounded-lg flex justify-center items-center overflow-hidden cursor-pointer">
+                <div className="text-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
+                  Regístrate
+                </div>
               </div>
             </>
           )}
