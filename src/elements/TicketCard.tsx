@@ -38,7 +38,7 @@ export default function TicketCard({ date, title, location, price, endingSoon, i
         </div>
       </div>
 
-      <BuyTicket onClick={() => {}} />
-    </div>
+      <BuyTicket name={title} price={price} />
+      </div>
   );
 }

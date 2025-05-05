@@ -1,11 +1,10 @@
-// src/pages/Compra/LayoutCompra.jsx
+// src/pages/Compra/LayoutCompra.tsx
 import React from 'react';
 import NavBuy from './partials/NavBuy';
 import FooterBuy from './partials/FooterBuy';
 import Paso1 from './pasos/Paso1';
-import Navbar from '../../partials/Navbar/Navbar';
 
-export default function LayoutCompra() {
+export default function LayoutCompra(): JSX.Element {
   return (
     <div className="w-full min-h-screen bg-white text-black flex flex-col justify-between">
       <NavBuy />
