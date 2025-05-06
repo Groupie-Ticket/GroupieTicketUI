@@ -1,21 +1,39 @@
 // src/elements/SectorCard.tsx
 import React from 'react';
+import artista4 from '../assets/artista4.png';
+import ticket from '../assets/ticket.svg';
 
 interface SectorCardProps {
   name: string;
   price: string;
   available: number;
+  selected?: boolean;
+  onSelect?: () => void;
 }
 
-export default function SectorCard({ name, price, available }: SectorCardProps): JSX.Element {
+export default function SectorCard({
+  name,
+  price,
+  available,
+  selected = false,
+  onSelect,
+}: SectorCardProps): JSX.Element {
+  const id = `sector-${name.replaceAll(' ', '-')}`;
+
   return (
-    <div className="rounded-lg outline outline-1 outline-offset-[-1px] outline-amber-500 inline-flex flex-col justify-start items-start gap-6">
+    <label
+      htmlFor={id}
+      className={`rounded-lg outline outline-1 outline-offset-[-1px] ${
+        selected ? 'outline-black' : 'outline-amber-500'
+      } cursor-pointer inline-flex flex-col justify-start items-start gap-6 w-full`}
+    >
       <div className="self-stretch px-2 py-4 inline-flex justify-start items-center gap-4">
         <img
-          className="w-28 self-stretch rounded-lg"
-          src="https://placehold.co/107x85"
+          className="w-32 self-stretch rounded-lg object-cover"
+          src={artista4}
           alt="Sector preview"
         />
+
         <div className="flex-1 inline-flex flex-col justify-start items-start gap-1">
           <div className="self-stretch text-black text-lg font-bold font-['Open_Sans'] leading-relaxed">
             {name}
@@ -23,8 +41,7 @@ export default function SectorCard({ name, price, available }: SectorCardProps):
           <div className="inline-flex justify-start items-center gap-2">
             <div className="px-1.5 py-px bg-green-400 rounded-lg flex justify-start items-center gap-0.5">
               <div className="w-5 h-5 relative">
-                <div className="w-5 h-5 absolute bg-zinc-300"></div>
-                <div className="w-3.5 h-3 absolute left-[2.5px] top-[4.17px] bg-black"></div>
+                <img src={ticket} alt="Ticket icon" className="w-5 h-5 absolute inset-0" />
               </div>
               <div className="text-black text-base font-normal font-['Open_Sans'] leading-normal">
                 {available}
@@ -41,11 +58,16 @@ export default function SectorCard({ name, price, available }: SectorCardProps):
             {price}
           </div>
         </div>
-        <div className="w-6 h-6 relative">
-          <div className="w-6 h-6 absolute bg-zinc-300"></div>
-          <div className="w-4 h-4 absolute left-[3px] top-[3px] bg-gradient-to-r from-amber-500 to-yellow-700"></div>
-        </div>
+
+        <input
+          id={id}
+          type="radio"
+          name="sector"
+          checked={selected}
+          onChange={onSelect}
+          className="w-6 h-6 rounded-full border border-zinc-300 checked:bg-black appearance-none cursor-pointer relative"
+        />
       </div>
-    </div>
+    </label>
   );
 }
