@@ -43,7 +43,7 @@ const streamings: Stream[] = [
   },
 ];
 
-export default function Streaming(): JSX.Element {
+export default function Streaming() {
   return (
     <div className="flex flex-col justify-start items-center gap-4 w-full">
       <div className="w-full flex justify-between items-center">

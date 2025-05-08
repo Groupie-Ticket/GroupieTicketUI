@@ -33,7 +33,7 @@ const sales: Sale[] = [
   },
 ];
 
-export default function SecundarySale(): JSX.Element {
+export default function SecundarySale() {
   return (
     <div className="flex flex-col justify-start items-center gap-4 w-full">
       <div className="w-full flex justify-between items-center">

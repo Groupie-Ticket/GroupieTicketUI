@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCompraStore } from '../../../store/compraStore';
 
-export default function FooterBuy(): JSX.Element {
+export default function FooterBuy() {
   const navigate = useNavigate();
   const { currentStep, setStep } = useCompraStore();
 

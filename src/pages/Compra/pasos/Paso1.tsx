@@ -10,7 +10,7 @@ interface Sector {
   available: number;
 }
 
-export default function Paso1(): JSX.Element {
+export default function Paso1() {
   const [quantity, setQuantity] = useState<number>(1);
 
   const sectors: Sector[] = Array.from({ length: quantity }, (_, i) => ({

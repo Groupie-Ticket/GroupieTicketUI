@@ -1,6 +1,6 @@
 import banner from '../assets/banner.png';
 
-export default function Hero(): JSX.Element {
+export default function Hero() {
   return (
     <div
       className="w-full h-[700px] bg-cover bg-center text-white flex items-center px-20 relative"

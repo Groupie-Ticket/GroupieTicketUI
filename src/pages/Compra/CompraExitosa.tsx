@@ -9,7 +9,7 @@ const platforms = [
   { name: 'Tiktok', icon: tiktok },
 ];
 
-export default function CompraExitosa(): JSX.Element {
+export default function CompraExitosa() {
   return (
     <div className="w-full bg-black overflow-hidden flex justify-center items-start pt-14">
       <div className="w-[848px] p-6 bg-white rounded-2xl flex flex-col items-center gap-4">

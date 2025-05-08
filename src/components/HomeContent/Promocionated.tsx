@@ -31,7 +31,7 @@ const publicities: PublicityItem[] = [
   },
 ];
 
-export default function Promocionated(): JSX.Element {
+export default function Promocionated() {
   return (
     <div className="flex flex-col justify-start items-center gap-4 w-full">
       <div className="w-full flex justify-between items-center">

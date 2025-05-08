@@ -7,7 +7,7 @@ import CompraExitosa from './CompraExitosa';
 import { useCompraStore } from '../../store/compraStore';
 import { useNavigate } from 'react-router-dom';
 
-export default function LayoutCompra(): JSX.Element {
+export default function LayoutCompra() {
   const { currentStep } = useCompraStore();
   const navigate = useNavigate();
 

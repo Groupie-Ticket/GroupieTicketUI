@@ -13,7 +13,7 @@ interface UserModalProps {
   onClose: () => void;
 }
 
-export default function UserModal({ onClose }: UserModalProps): JSX.Element {
+export default function UserModal({ onClose }: UserModalProps) {
   const logout = useAuthStore((state) => state.logout);
   const navigate = useNavigate();
 

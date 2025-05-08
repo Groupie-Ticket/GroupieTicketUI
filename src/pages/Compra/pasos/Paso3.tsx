@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function Paso3(): JSX.Element {
+export default function Paso3() {
     const navigate = useNavigate();
 
     const handleSubmit = () => {

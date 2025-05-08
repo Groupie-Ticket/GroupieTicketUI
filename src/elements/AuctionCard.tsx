@@ -1,5 +1,3 @@
-// src/elements/AuctionCard.tsx
-import React from 'react';
 import BuyTicket from './buttons/BuyTicket';
 
 interface AuctionCardProps {
@@ -18,7 +16,7 @@ export default function AuctionCard({
   price,
   endingSoon,
   image,
-}: AuctionCardProps): JSX.Element {
+}: AuctionCardProps) {
   return (
     <div className="w-full py-4 border-b border-zinc-200 flex justify-start items-center gap-4">
       <img className="w-48 h-28 rounded-lg" src={image} alt={title} />
@@ -47,7 +45,7 @@ export default function AuctionCard({
         </div>
       </div>
 
-      <BuyTicket onClick={() => {}} />
+      <BuyTicket name={title} price={price} available={10} />
     </div>
   );
 }

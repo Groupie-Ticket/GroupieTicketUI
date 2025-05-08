@@ -9,7 +9,7 @@ interface BuyTicketProps {
   available: number;
 }
 
-export default function BuyTicket({ name, price, available }: BuyTicketProps): JSX.Element {
+export default function BuyTicket({ name, price, available }: BuyTicketProps) {
   const navigate = useNavigate();
 
   return (

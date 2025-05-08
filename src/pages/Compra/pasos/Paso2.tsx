@@ -1,5 +1,5 @@
 
-export default function Paso2(): JSX.Element {
+export default function Paso2() {
     return (
         <div className="px-7 py-3.5 bg-neutral-50 rounded-2xl inline-flex flex-col justify-start items-start gap-10">
             <div className="justify-center text-black text-3xl font-bold font-['Open_Sans'] leading-10">

@@ -17,7 +17,7 @@ export default function SectorCard({
   available,
   selected = false,
   onSelect,
-}: SectorCardProps): JSX.Element {
+}: SectorCardProps) {
   const id = `sector-${name.replaceAll(' ', '-')}`;
 
   return (

@@ -9,7 +9,7 @@ interface TicketCardProps {
   image: string;
 }
 
-export default function TicketCard({ date, title, location, price, endingSoon, image }: TicketCardProps): JSX.Element {
+export default function TicketCard({ date, title, location, price, endingSoon, image }: TicketCardProps) {
   return (
     <div className="w-full py-4 border-b border-zinc-200 flex justify-start items-center gap-4">
       <img className="w-48 h-28 rounded-lg" src={image} alt={title} />

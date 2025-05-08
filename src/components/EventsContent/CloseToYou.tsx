@@ -18,7 +18,7 @@ const events: Event[] = [
     { id: 4, name: 'Ckan', price: 'Desde $0,000.00 MXN', image: cty4 },
 ];
 
-export default function CloseToYou(): JSX.Element {
+export default function CloseToYou() {
     return (
         <div className="self-stretch flex flex-col justify-start items-center gap-4">
             <div className="self-stretch flex justify-start items-center">

@@ -2,7 +2,7 @@ import arrowDropDown from '../../assets/arrow_drop_down.svg';
 import tune from '../../assets/tune.svg';
 import filter from '../../assets/filter.svg';
 
-export default function EventsBuyTickets(): JSX.Element {
+export default function EventsBuyTickets() {
     return (
         <div className="flex flex-col justify-start items-start gap-4">
             <div className="self-stretch text-black text-4xl font-bold font-['Open_Sans'] leading-[54px]">

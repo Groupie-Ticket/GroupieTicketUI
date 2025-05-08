@@ -1,44 +1,9 @@
 import ArtistCard from '../../elements/ArtistCard';
-import artista1 from '../../assets/artista1.png';
-import artista2 from '../../assets/artista2.png';
-import artista3 from '../../assets/artista3.png';
-import artista4 from '../../assets/artista4.png';
+import { getPopularArtists } from '../../constants/artists.ts';
 
-interface Artist {
-  id: number;
-  name: string;
-  price: string;
-  image: string;
-}
+export default function PopularArtists() {
+  const artists = getPopularArtists();
 
-const artists: Artist[] = [
-  {
-    id: 1,
-    name: 'Christian Nodal',
-    price: 'Desde $0,000.00 MXN',
-    image: artista1,
-  },
-  {
-    id: 2,
-    name: 'Santa Fe Klan',
-    price: 'Desde $0,000.00 MXN',
-    image: artista2,
-  },
-  {
-    id: 3,
-    name: 'Banda MS',
-    price: 'Desde $0,000.00 MXN',
-    image: artista3,
-  },
-  {
-    id: 4,
-    name: 'Julión Álvarez',
-    price: 'Desde $0,000.00 MXN',
-    image: artista4,
-  },
-];
-
-export default function PopularArtists(): JSX.Element {
   return (
     <div className="flex flex-col justify-start items-center gap-4">
       <div className="w-full flex justify-between items-center">

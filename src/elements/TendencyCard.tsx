@@ -4,7 +4,7 @@ interface TendencyCardProps {
   image: string;
 }
 
-export default function TendencyCard({ name, price, image }: TendencyCardProps): JSX.Element {
+export default function TendencyCard({ name, price, image }: TendencyCardProps) {
   return (
     <div className="w-60 flex flex-col">
       <img src={image} alt={name} className="w-full h-40 object-cover rounded-lg" />

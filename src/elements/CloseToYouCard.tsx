@@ -1,5 +1,3 @@
-// src/elements/CloseToYouCard.tsx
-import React from 'react';
 
 interface CloseToYouCardProps {
   name: string;
@@ -7,7 +5,7 @@ interface CloseToYouCardProps {
   image: string;
 }
 
-export default function CloseToYouCard({ name, price, image }: CloseToYouCardProps): JSX.Element {
+export default function CloseToYouCard({ name, price, image }: CloseToYouCardProps) {
   return (
     <div className="w-60 flex flex-col">
       <img src={image} alt={name} className="w-full h-40 object-cover rounded-lg" />

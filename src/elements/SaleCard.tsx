@@ -16,7 +16,7 @@ export default function SaleCard({
   price,
   endingSoon,
   image,
-}: SaleCardProps): JSX.Element {
+}: SaleCardProps) {
   return (
     <div className="w-full py-4 border-b border-zinc-200 flex justify-start items-center gap-4">
       <img className="w-48 h-28 rounded-lg" src={image} alt={title} />

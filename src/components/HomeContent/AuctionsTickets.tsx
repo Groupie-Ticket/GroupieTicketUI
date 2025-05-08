@@ -43,7 +43,7 @@ const auctions: Auction[] = [
   },
 ];
 
-export default function AuctionsTickets(): JSX.Element {
+export default function AuctionsTickets() {
   return (
     <div className="flex flex-col justify-start items-center gap-4 w-full">
       <div className="w-full flex justify-between items-center">

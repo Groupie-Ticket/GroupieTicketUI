@@ -6,7 +6,8 @@ interface ArtistCardProps {
   image: string;
 }
 
-export default function ArtistCard({ name, price, image }: ArtistCardProps): JSX.Element {
+export default function ArtistCard({ name, price, image }: ArtistCardProps) {
+
   return (
     <div className="inline-flex flex-col justify-start items-start gap-1">
       <img className="w-80 h-48 rounded-lg" src={image} alt={name} />

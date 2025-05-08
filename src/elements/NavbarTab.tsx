@@ -3,7 +3,7 @@ interface NavbarTabProps {
   onClick?: () => void;
 }
 
-export default function NavbarTab({ label, onClick }: NavbarTabProps): JSX.Element {
+export default function NavbarTab({ label, onClick }: NavbarTabProps) {
   return (
     <div
       onClick={onClick}

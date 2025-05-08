@@ -11,7 +11,7 @@ import notifications from '../../assets/notifications.svg';
 import local_mall from '../../assets/local_mall.svg';
 import user from '../../assets/user.svg';
 
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
   const { isLoggedIn } = useAuthStore();
   const [showUserModal, setShowUserModal] = useState<boolean>(false);
   const navigate = useNavigate();

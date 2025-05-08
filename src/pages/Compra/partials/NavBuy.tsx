@@ -5,7 +5,7 @@ interface NavBuyProps {
   currentStep?: number;
 }
 
-export default function NavBuy({ currentStep = 1 }: NavBuyProps): JSX.Element {
+export default function NavBuy({ currentStep = 1 }: NavBuyProps) {
   const steps = [
     {
       step: 1,

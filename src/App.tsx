@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Events from './pages/Eventos';
 import LayoutCompra from './pages/Compra/LayoutCompra';
 
-export default function App(): JSX.Element {
+export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />

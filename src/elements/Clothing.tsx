@@ -12,7 +12,7 @@ export default function Clothing({
   title,
   description,
   price,
-}: ClothingProps): JSX.Element {
+}: ClothingProps) {
   return (
     <div className="flex-1 flex flex-col justify-start items-start gap-1">
       <img className="self-stretch h-52 rounded-lg" src={image} alt={title} />

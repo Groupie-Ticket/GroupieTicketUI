@@ -5,7 +5,7 @@ import skipNextIcon from '../assets/skip_next.svg';
 import skipPreviousIcon from '../assets/skip_previous.svg';
 import volumeUpIcon from '../assets/volume_up.svg';
 
-export default function Reproductor(): JSX.Element {
+export default function Reproductor() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(50);
 

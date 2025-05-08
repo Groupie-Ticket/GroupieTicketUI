@@ -43,7 +43,7 @@ const tickets: Ticket[] = [
   },
 ];
 
-export default function NewTickets(): JSX.Element {
+export default function NewTickets() {
   return (
     <div className="flex flex-col justify-start items-center gap-4 w-full">
       <div className="w-full flex justify-between items-center">

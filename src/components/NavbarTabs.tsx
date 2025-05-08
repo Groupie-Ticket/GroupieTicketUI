@@ -14,7 +14,7 @@ const tabs: Tab[] = [
   { label: 'Streaming', path: '#' },
 ];
 
-export default function NavbarTabs(): JSX.Element {
+export default function NavbarTabs() {
   const navigate = useNavigate();
 
   return (

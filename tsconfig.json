@@ -6,10 +6,20 @@
         "moduleResolution": "node",
         "strict": true,
         "esModuleInterop": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "types": [
+            "jest",
+            "node",
+            "react"
+        ],
+        "lib": [
+            "dom",
+            "esnext"
+        ]
     },
     "include": [
         "src",
-        "src/types"
+        "src/types",
+        "jest.setup.ts"
     ]
 }

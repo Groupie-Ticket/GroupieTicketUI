@@ -16,7 +16,7 @@ export default function StreamingCard({
   price,
   endingSoon,
   image,
-}: StreamingCardProps): JSX.Element {
+}: StreamingCardProps) {
   return (
     <div className="w-full py-4 border-b border-zinc-200 flex justify-start items-center gap-4">
       <img className="w-48 h-28 rounded-lg" src={image} alt={title} />
