@@ -54,7 +54,10 @@ export default function Navbar() {
               >
                 Inicia sesión
               </div>
-              <div className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-700 rounded-lg flex justify-center items-center overflow-hidden cursor-pointer">
+              <div
+                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-700 rounded-lg flex justify-center items-center overflow-hidden cursor-pointer"
+                onClick={() => navigate('/register')}
+              >
                 <div className="text-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
                   Regístrate
                 </div>
