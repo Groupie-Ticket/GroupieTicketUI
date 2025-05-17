@@ -4,6 +4,7 @@ import Login from './pages/Auth/Login';
 import Home from './pages/Home';
 import Events from './pages/Eventos';
 import LayoutCompra from './pages/Compra/LayoutCompra';
+import EventInformation from './components/HomeContentNew/EventInformation/EventInformation';
 
 export default function App() {
   return (
@@ -22,6 +23,14 @@ export default function App() {
         element={
           <Layout>
             <Events />
+          </Layout>
+        }
+      />
+      <Route
+        path="/event"
+        element={
+          <Layout>
+            <EventInformation />
           </Layout>
         }
       />

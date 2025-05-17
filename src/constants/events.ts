@@ -27,8 +27,7 @@ export interface Event {
   mapEmbedUrl: string;
 }
 
-
-export const getEvents = (): Event[] => [
+const events: Event[] = [
   {
     id: 1,
     venue: 'Arena CDMX',
@@ -165,3 +164,5 @@ export const getEvents = (): Event[] => [
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
   },
 ];
+
+export const getEvents = (): Event[] => events;

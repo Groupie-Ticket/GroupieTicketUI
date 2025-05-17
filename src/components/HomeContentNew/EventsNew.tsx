@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getEvents } from '../../constants/events';
+import { getEvents, Event } from '../../constants/events';
 import EventCard from '../../elements/HomeContentNew/EventCard';
 
 export default function EventsNew() {
