@@ -1,31 +1,40 @@
 // src/elements/buttons/BuyTicket.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import arrow from '../../assets/foward.svg';
+import { useCompraStore } from '../../store/compraStore';
 
 interface BuyTicketProps {
   name: string;
-  price: string;
+  price: number;
   available: number;
+  venue: string;
+  location: string;
+  datetime: string;
+  image: string;
 }
 
-export default function BuyTicket({ name, price, available }: BuyTicketProps) {
+export default function BuyTicket({ name, price, available, venue, location, datetime, image }: BuyTicketProps) {
   const navigate = useNavigate();
+  const { setEventData } = useCompraStore();
+
+  const handleClick = () => {
+    setEventData({ name, price, available, venue, location, datetime, image });
+    navigate('/BuyProcces');
+  };
 
   return (
     <div
-      onClick={() =>
-        navigate('/BuyProcces', {
-          state: { name, price, available },
-        })
-      }
-      className="px-4 py-2 rounded-lg outline outline-1 outline-offset-[-1px] outline-amber-500 flex justify-center items-center gap-2 overflow-hidden cursor-pointer min-w-[180px]"
+      onClick={handleClick}
+      className="px-9 py-4 rounded-lg outline outline-2 outline-offset-[-1.80px] outline-amber-500 inline-flex justify-start items-center gap-2.5 overflow-hidden cursor-pointer"
     >
-      <div className="text-center text-amber-500 text-base font-normal font-['Open_Sans'] leading-normal whitespace-nowrap">
+      <div className="text-center justify-center text-white text-base font-bold font-['Open_Sans'] leading-normal">
         Comprar boleto
       </div>
-      <div className="w-6 h-6 relative">
-        <img src={arrow} alt="Comprar" className="absolute inset-0 w-6 h-6 object-cover" />
+      {/* <div className="text-center justify-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
+        desde
+      </div> */}
+      <div className="text-center justify-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
+        ${price}
       </div>
     </div>
   );

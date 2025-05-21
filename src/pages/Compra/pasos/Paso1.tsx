@@ -1,73 +1,72 @@
+// src/pages/Compra/Paso1.tsx
 import { useState } from 'react';
-import SectorCard from '../../../elements/SectorCard';
-import arrow_drop_down_circle from '../../../assets/arrow_drop_down_circle.svg';
-
-
-
-interface Sector {
-  name: string;
-  price: string;
-  available: number;
-}
+import { useCompraStore } from '../../../store/compraStore';
 
 export default function Paso1() {
-  const [quantity, setQuantity] = useState<number>(1);
+  const { eventData, quantity, setQuantity } = useCompraStore();
 
-  const sectors: Sector[] = Array.from({ length: quantity }, (_, i) => ({
-    name: `Sección PREFE1 Fila B asiento ${i}`,
-    price: `$${(i + 1) * 100},00 MXN`,
-    available: 10 - i,
-  }));
+  if (!eventData) {
+    return <div>No hay datos del evento disponibles</div>;
+  }
+
+  const { name, venue, location, datetime, price, image } = eventData;
 
   return (
-    <div className="flex justify-between gap-6">
-      <div className="flex flex-col justify-start items-start gap-6 w-[632px]">
-        <div className="flex flex-col justify-start items-start gap-1 w-full">
-          <div className="text-black text-4xl font-bold font-['Open_Sans'] leading-[54px]">
-            Selecciona
-          </div>
-          <div className="text-zinc-900 text-sm font-normal font-['Open_Sans'] leading-tight">
-            JUE 23 MAR 2023 16:00
-          </div>
-          <div className="text-black text-lg font-bold font-['Open_Sans'] leading-relaxed">
-            Christian Nodal evento en vivo
-          </div>
-          <div className="text-black text-base font-normal font-['Open_Sans'] leading-normal">
-            Zapopan, JAL. Auditorio Telmex
-          </div>
-          <input
-            type="number"
-            min={1}
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-            className="mt-2 px-2 py-1 border border-zinc-300 rounded w-32 text-sm text-black"
-          />
-        </div>
+    <div className="w-full flex flex-col gap-6 justify-center items-center">
+      <div className="inline-flex flex-col justify-start items-start gap-6 w-1/2">
+        <img className="self-stretch h-120 object-contain rounded-lg" src={image} alt={name} />
 
-        <div className="w-full inline-flex justify-start items-start gap-4">
-          {['Todos los precios', 'Tipo de boleto'].map((label, idx) => (
-            <div
-              key={idx}
-              className="px-4 py-2 rounded-lg outline outline-1 outline-offset-[-1px] outline-zinc-200 flex justify-end items-center gap-1 overflow-hidden"
-            >
-              <div className="w-6 h-6 relative">
-                <img src={arrow_drop_down_circle} alt="Ticket icon" className="w-5 h-5 absolute inset-0" />
-              </div>
-              {label && (
-                <div className="text-right justify-center text-black text-base font-normal font-['Open_Sans'] leading-normal">
-                  {label}
-                </div>
-              )}
+        <div className="self-stretch flex flex-col justify-start items-start gap-4">
+          <div className="self-stretch text-black text-3xl font-bold leading-10">{name}</div>
+
+          <div className="self-stretch flex flex-col justify-start items-start gap-2">
+            <div className="self-stretch py-3.5 border-b border-zinc-200 inline-flex justify-between items-center">
+              <div className="text-black text-lg font-normal">Sede</div>
+              <div className="text-black text-lg font-semibold">{venue}</div>
             </div>
-          ))}
+            <div className="self-stretch py-3.5 border-b border-zinc-200 inline-flex justify-between items-center">
+              <div className="text-black text-lg font-normal">Lugar</div>
+              <div className="text-black text-lg font-semibold">{location}</div>
+            </div>
+            <div className="self-stretch py-3.5 border-b border-zinc-200 inline-flex justify-between items-center">
+              <div className="text-black text-lg font-normal">Fecha y Hora</div>
+              <div className="text-black text-lg font-semibold">{datetime}</div>
+            </div>
+          </div>
         </div>
-
-        {sectors.map((sector, index) => (
-          <SectorCard key={index} {...sector} />
-        ))}
       </div>
 
-      <div className="w-[583px] h-[751px] bg-zinc-100 rounded-2xl"></div>
+      <div className="self-stretch py-4 flex flex-col gap-4 justify-center items-center">
+        <div className="w-1/2 px-6 py-4 rounded-lg outline outline-1 outline-black flex gap-4">
+          <div className="flex-1 text-black text-base font-bold">Cantidad de boletos</div>
+
+          <button
+            className="w-6 h-6 bg-zinc-300 flex items-center justify-center"
+            onClick={() => setQuantity(Math.max(1, quantity - 1))}
+          >
+            -
+          </button>
+
+          <div className="text-black text-base font-bold">{quantity}</div>
+
+          <button
+            className="w-6 h-6 bg-zinc-300 flex items-center justify-center"
+            onClick={() => setQuantity(quantity + 1)}
+          >
+            +
+          </button>
+        </div>
+
+        <div className="w-1/2 px-6 py-4 rounded-lg outline outline-1 outline-black flex justify-between items-center">
+          <div className="text-black text-base font-bold">Precio por boleto</div>
+          <div className="text-black text-base font-bold">${price.toLocaleString()}</div>
+        </div>
+
+        <div className="w-1/2 px-6 py-4 rounded-lg outline outline-1 outline-black flex justify-between items-center">
+          <div className="text-black text-base font-bold">Total</div>
+          <div className="text-black text-base font-bold">${(price * quantity).toLocaleString()}</div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,9 +8,6 @@ export default function HeroInformation() {
 
     if (!event) return null;
 
-    console.log(event)
-
-
     return (
         <div
             className="self-stretch h-[520px] px-20 py-6 inline-flex flex-col justify-center items-start gap-6 overflow-hidden relative"
@@ -32,23 +29,22 @@ export default function HeroInformation() {
                         <div className="text-white text-5xl font-bold leading-[72px]">{event.artist}</div>
                         <div className="text-white text-2xl font-bold leading-9">{event.datetime}</div>
                     </div>
-                    <div className="px-9 py-4 rounded-lg outline outline-2 outline-offset-[-1.80px] outline-amber-500 inline-flex justify-start items-center gap-2.5 overflow-hidden">
-                    <BuyTicket name={event.artist} price={event.price} available={event.availableTickets} />
-
-                        <div className="text-white text-base font-normal">desde</div>
-                        <div className="text-white text-base font-normal">$502 - $2,448</div>
-                    </div>
+                    <BuyTicket 
+                        name={event.artist} 
+                        price={event.price} 
+                        available={event.availableTickets}
+                        venue={event.venue}
+                        location={event.location}
+                        datetime={event.datetime}
+                        image={event.image}
+                    />
                 </div>
 
                 <img className="flex-1 self-stretch" src={event.image} alt={event.artist} />
             </div>
 
             <div className="relative z-10 w-full">
-                <Reproductor
-                    title={event.song.title}
-                    artist={event.artist}
-                    url={event.song.url}
-                />
+                <Reproductor />
             </div>
         </div>
     );
