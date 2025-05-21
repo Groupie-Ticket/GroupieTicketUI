@@ -1,16 +1,55 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useRef, useEffect } from 'react';
 import playIcon from '../assets/play.svg';
 import pauseIcon from '../assets/pause.svg';
 import skipNextIcon from '../assets/skip_next.svg';
 import skipPreviousIcon from '../assets/skip_previous.svg';
 import volumeUpIcon from '../assets/volume_up.svg';
 
-export default function Reproductor() {
+interface ReproductorProps {
+  song?: {
+    title: string;
+    url: string;
+  };
+  onPlayStateChange?: (playing: boolean) => void;
+}
+
+export default function Reproductor({ song, onPlayStateChange }: ReproductorProps) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(50);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const togglePlay = (): void => setIsPlaying(!isPlaying);
-  const handleVolumeChange = (e: ChangeEvent<HTMLInputElement>): void => setVolume(Number(e.target.value));
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume / 100;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    if (onPlayStateChange) {
+      onPlayStateChange(isPlaying);
+    }
+  }, [isPlaying, onPlayStateChange]);
+
+  const togglePlay = (): void => {
+    if (!audioRef.current || !song) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleVolumeChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const newVolume = Number(e.target.value);
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
+    }
+  };
+
+  if (!song) return null;
 
   return (
     <div className="w-full px-20 py-2 bg-black flex justify-between items-center gap-10">
@@ -20,6 +59,7 @@ export default function Reproductor() {
       </div>
 
       <div className="flex items-center gap-4">
+        <audio ref={audioRef} src={song.url} />
         <img src={skipPreviousIcon} alt="Anterior" className="w-8 h-8 cursor-pointer" />
         <img
           src={isPlaying ? pauseIcon : playIcon}
