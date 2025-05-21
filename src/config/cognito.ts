@@ -12,12 +12,13 @@ export const cognitoConfig = {
   redirectUri: getEnvVar('VITE_COGNITO_REDIRECT_URI'),
   responseType: getEnvVar('VITE_COGNITO_RESPONSE_TYPE'),
   scope: getEnvVar('VITE_COGNITO_SCOPE'),
+  region: getEnvVar('VITE_COGNITO_REGION'),
 } as const;
 
 // URLs de endpoints
 export const cognitoUrls = {
-  authorize: `${cognitoConfig.authority}/oauth2/authorize`,
-  token: `${cognitoConfig.authority}/oauth2/token`,
-  userInfo: `${cognitoConfig.authority}/oauth2/userInfo`,
-  logout: `${cognitoConfig.authority}/logout`,
+  authorize: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/authorize`,
+  token: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/token`,
+  userInfo: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/userInfo`,
+  logout: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/logout`,
 } as const; 

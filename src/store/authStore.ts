@@ -21,20 +21,22 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     try {
       set({ isLoading: true, error: null });
 
-      // Iniciar el flujo de autenticación con Cognito
-      const authUrl = new URL(cognitoUrls.authorize);
-      authUrl.searchParams.append('client_id', cognitoConfig.clientId);
-      authUrl.searchParams.append('response_type', cognitoConfig.responseType);
-      authUrl.searchParams.append('scope', cognitoConfig.scope);
-      authUrl.searchParams.append('redirect_uri', cognitoConfig.redirectUri);
-      
       // Generar un estado aleatorio para seguridad
       const state = Math.random().toString(36).substring(7);
-      authUrl.searchParams.append('state', state);
-      
-      // Guardar el estado en sessionStorage para verificarlo después
       sessionStorage.setItem('cognito_state', state);
 
+      // Construir la URL de autorización
+      const authUrl = new URL(cognitoUrls.authorize);
+      authUrl.searchParams.append('client_id', cognitoConfig.clientId);
+      authUrl.searchParams.append('response_type', 'token');
+      authUrl.searchParams.append('scope', cognitoConfig.scope);
+      authUrl.searchParams.append('redirect_uri', cognitoConfig.redirectUri);
+      authUrl.searchParams.append('state', state);
+      // Forzar un nuevo inicio de sesión
+      authUrl.searchParams.append('prompt', 'login');
+
+      console.log('URL de autorización:', authUrl.toString());
+      
       // Redirigir al usuario a la página de login de Cognito
       window.location.href = authUrl.toString();
     } catch (error) {
@@ -46,54 +48,28 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     }
   },
 
-  handleAuthResponse: async (code: string, state: string) => {
+  handleAuthResponse: async (accessToken: string, idToken: string) => {
     try {
       set({ isLoading: true, error: null });
 
-      // Verificar el estado
-      const savedState = sessionStorage.getItem('cognito_state');
-      if (state !== savedState) {
-        throw new Error('Estado inválido');
-      }
+      console.log('Procesando tokens:');
+      console.log('Access Token:', accessToken);
+      console.log('ID Token:', idToken);
 
-      // Limpiar el estado
-      sessionStorage.removeItem('cognito_state');
-
-      // Intercambiar el código por tokens
-      const response = await fetch(cognitoUrls.token, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          grant_type: 'authorization_code',
-          client_id: cognitoConfig.clientId,
-          redirect_uri: cognitoConfig.redirectUri,
-          code,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error_description || 'Error al obtener tokens');
-      }
-
-      const data = await response.json();
-      
       // Guardar tokens
       set({
         tokens: {
-          accessToken: data.access_token,
-          idToken: data.id_token,
-          refreshToken: data.refresh_token,
+          accessToken,
+          idToken,
+          refreshToken: null, // El flujo implícito no proporciona refresh token
         },
-        isAuthenticated: true,
+        isAuthenticated: true, // Establecer isAuthenticated como true cuando tenemos tokens
       });
 
       // Obtener información del usuario
       const userResponse = await fetch(cognitoUrls.userInfo, {
         headers: {
-          'Authorization': `Bearer ${data.access_token}`,
+          'Authorization': `Bearer ${accessToken}`,
         },
       });
 
@@ -102,10 +78,21 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
       }
 
       const userData = await userResponse.json();
-      set({ user: userData });
+      console.log('Información del usuario:', userData);
+      
+      // Actualizar el estado con la información del usuario
+      set({ 
+        user: userData,
+        isAuthenticated: true // Asegurarnos de que isAuthenticated siga siendo true
+      });
+
+      return userData;
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error en la autenticación';
-      set({ error: errorMessage });
+      set({ 
+        error: errorMessage,
+        isAuthenticated: false // En caso de error, asegurarnos de que isAuthenticated sea false
+      });
       throw new Error(errorMessage);
     } finally {
       set({ isLoading: false });
@@ -119,6 +106,9 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
       const logoutUrl = new URL(cognitoUrls.logout);
       logoutUrl.searchParams.append('client_id', cognitoConfig.clientId);
       logoutUrl.searchParams.append('logout_uri', window.location.origin);
+      // Forzar cierre de sesión
+      logoutUrl.searchParams.append('response_type', 'token');
+      logoutUrl.searchParams.append('scope', cognitoConfig.scope);
 
       // Reiniciar el estado
       get().resetState();

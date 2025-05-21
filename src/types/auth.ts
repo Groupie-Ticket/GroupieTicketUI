@@ -5,12 +5,10 @@ export interface AuthTokens {
 }
 
 export interface UserProfile {
-  sub?: string;
-  email?: string;
-  phone_number?: string;
+  sub: string;
+  email: string;
   name?: string;
-  given_name?: string;
-  family_name?: string;
+  phone_number?: string;
   [key: string]: any;
 }
 
@@ -18,7 +16,7 @@ export interface SignUpData {
   email: string;
   password: string;
   name: string;
-  phone_number: string;
+  phone_number?: string;
 }
 
 export interface AuthState {
@@ -32,10 +30,11 @@ export interface AuthState {
 export interface AuthStore extends AuthState {
   // Métodos de autenticación
   signIn: (username: string, password: string) => Promise<void>;
-  signUp: (data: SignUpData) => Promise<void>;
-  confirmSignUp: (email: string, code: string) => Promise<void>;
+  signUp: (data: SignUpData) => Promise<any>;
+  confirmSignUp: (email: string, code: string) => Promise<any>;
   signOut: () => Promise<void>;
   refreshTokens: () => Promise<void>;
+  handleAuthResponse: (code: string, state: string) => Promise<void>;
   
   // Métodos de estado
   setLoading: (isLoading: boolean) => void;

@@ -12,10 +12,15 @@ import local_mall from '../../assets/local_mall.svg';
 import user from '../../assets/user.svg';
 
 export default function Navbar() {
-  const { isLoggedIn } = useAuthStore();
+  const { isAuthenticated, signOut } = useAuthStore();
   const [showUserModal, setShowUserModal] = useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleSignOut = () => {
+    signOut();
+    setShowUserModal(false);
+  };
 
   const isTransparent = location.pathname === '/' || location.pathname === '/events';
 
@@ -34,7 +39,7 @@ export default function Navbar() {
         </div>
         <div className="flex-1 flex justify-end items-center gap-6">
           <NavbarTabs />
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <>
               <img src={diamond} alt="Diamond" className="w-6 h-6" />
               <img src={notifications} alt="Notifications" className="w-6 h-6" />
@@ -67,9 +72,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isLoggedIn && showUserModal && (
+      {isAuthenticated && showUserModal && (
         <div className="absolute top-full right-20 z-50">
-          <UserModal onClose={() => setShowUserModal(false)} />
+          <UserModal 
+            isOpen={showUserModal}
+            onClose={() => setShowUserModal(false)}
+            onSignOut={handleSignOut}
+          />
         </div>
       )}
     </div>

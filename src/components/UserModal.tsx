@@ -14,13 +14,17 @@ interface UserModalProps {
 }
 
 export default function UserModal({ onClose }: UserModalProps) {
-  const logout = useAuthStore((state) => state.logout);
+  const { user, signOut } = useAuthStore();
   const navigate = useNavigate();
 
-  const handleLogout = (): void => {
-    logout();
-    navigate('/login');
-    onClose();
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      navigate('/login');
+      onClose();
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   };
 
   return (
@@ -28,23 +32,44 @@ export default function UserModal({ onClose }: UserModalProps) {
       <div className="self-stretch inline-flex justify-start items-center gap-4">
         <div className="flex-1 inline-flex flex-col justify-start items-start gap-1">
           <div className="text-black text-sm font-bold font-['Open_Sans'] leading-tight">
-            Bienvenido de nuevo
+            {user?.name || 'Usuario'}
           </div>
           <div className="text-black text-xs font-normal font-['Open_Sans'] leading-none">
-            usuario@mail.com
+            {user?.email || 'usuario@mail.com'}
           </div>
         </div>
         <img src={arrowFoward} alt="Flecha" className="w-6 h-6 cursor-pointer" onClick={onClose} />
       </div>
 
-      {[userIcon, local_mall, ticket, premium, settings].map((icon, index) => (
-        <div key={index} className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
-          <img src={icon} alt="icon" className="w-6 h-6" />
-          <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Opción</div>
-        </div>
-      ))}
+      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
+        <img src={userIcon} alt="Perfil" className="w-6 h-6" />
+        <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Mi Perfil</div>
+      </div>
 
-      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer" onClick={handleLogout}>
+      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
+        <img src={local_mall} alt="Compras" className="w-6 h-6" />
+        <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Mis Compras</div>
+      </div>
+
+      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
+        <img src={ticket} alt="Tickets" className="w-6 h-6" />
+        <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Mis Tickets</div>
+      </div>
+
+      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
+        <img src={premium} alt="Premium" className="w-6 h-6" />
+        <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Premium</div>
+      </div>
+
+      <div className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer">
+        <img src={settings} alt="Configuración" className="w-6 h-6" />
+        <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">Configuración</div>
+      </div>
+
+      <div 
+        className="self-stretch inline-flex justify-start items-center gap-4 cursor-pointer"
+        onClick={handleLogout}
+      >
         <img src={logoutIcon} alt="Cerrar sesión" className="w-6 h-6" />
         <div className="text-black text-sm font-normal font-['Open_Sans'] leading-tight">
           Cerrar sesión
