@@ -25,6 +25,8 @@ export interface Event {
     url: string;
   };
   mapEmbedUrl: string;
+  price: number;
+  availableTickets: number;
 }
 
 const events: Event[] = [
@@ -41,7 +43,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 2,
@@ -56,7 +60,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 3,
@@ -71,7 +77,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 4,
@@ -86,7 +94,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 5,
@@ -101,7 +111,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 6,
@@ -116,7 +128,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 7,
@@ -131,7 +145,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 8,
@@ -146,7 +162,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
   {
     id: 9,
@@ -161,7 +179,9 @@ const events: Event[] = [
     },
     description: 'Bjorn Larsen es un cantante folk que captura el alma nórdica en cada presentación. Con letras introspectivas y melodías suaves, ha ganado reconocimiento global.',
     notes: `Pagan boleto a partir de: 2 años<br/>Acceso a partir de edad: N/A<br/>Apertura de puertas: 19:00 hrs<br/>Duración aproximada del evento: 2 hrs<br/>No se permite el acceso con cámaras fotográficas profesionales`,
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.003418820841!2d-68.85263972394297!3d-32.8980778694379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e090e883d34e5%3A0xa7e2f899c46ce069!2sAuditorium%20Angel%20Bustelo!5e0!3m2!1sen!2sar!4v1747011252315!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
+    price: 1000,
+    availableTickets: 10
   },
 ];
 

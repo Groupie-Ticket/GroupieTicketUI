@@ -1,11 +1,15 @@
 import React from 'react';
 import { useEventStore } from '../../../store/eventStore';
 import Reproductor from './Reproductor';
+import BuyTicket from '../../buttons/BuyTicket';
 
 export default function HeroInformation() {
     const event = useEventStore((state) => state.selectedEvent);
 
     if (!event) return null;
+
+    console.log(event)
+
 
     return (
         <div
@@ -29,7 +33,8 @@ export default function HeroInformation() {
                         <div className="text-white text-2xl font-bold leading-9">{event.datetime}</div>
                     </div>
                     <div className="px-9 py-4 rounded-lg outline outline-2 outline-offset-[-1.80px] outline-amber-500 inline-flex justify-start items-center gap-2.5 overflow-hidden">
-                        <div className="text-white text-base font-bold">Comprar boleto</div>
+                    <BuyTicket name={event.artist} price={event.price} available={event.availableTickets} />
+
                         <div className="text-white text-base font-normal">desde</div>
                         <div className="text-white text-base font-normal">$502 - $2,448</div>
                     </div>
