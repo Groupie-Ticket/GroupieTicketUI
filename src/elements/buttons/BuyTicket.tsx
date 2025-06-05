@@ -30,9 +30,6 @@ export default function BuyTicket({ name, price, available, venue, location, dat
       <div className="text-center justify-center text-white text-base font-bold font-['Open_Sans'] leading-normal">
         Comprar boleto
       </div>
-      {/* <div className="text-center justify-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
-        desde
-      </div> */}
       <div className="text-center justify-center text-white text-base font-normal font-['Open_Sans'] leading-normal">
         ${price}
       </div>

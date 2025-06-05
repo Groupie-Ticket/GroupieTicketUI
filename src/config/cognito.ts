@@ -17,8 +17,8 @@ export const cognitoConfig = {
 
 // URLs de endpoints
 export const cognitoUrls = {
-  authorize: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/authorize`,
-  token: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/token`,
-  userInfo: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/userInfo`,
-  logout: `https://client-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/logout`,
+  authorize: `https://beta-admin-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/authorize`,
+  token: `https://beta-admin-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/token`,
+  userInfo: `https://beta-admin-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/oauth2/userInfo`,
+  logout: `https://beta-admin-groupieticket.auth.${cognitoConfig.region}.amazoncognito.com/logout`,
 } as const; 

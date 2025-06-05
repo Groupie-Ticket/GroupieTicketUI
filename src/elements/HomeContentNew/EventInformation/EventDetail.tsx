@@ -1,5 +1,5 @@
-import React from 'react';
 import { useEventStore } from '../../../store/eventStore';
+import BuyTicketEventInformation from '../../buttons/BuyTicketEventInformation';
 
 export default function EventDetail() {
     const event = useEventStore((state) => state.selectedEvent);
@@ -43,13 +43,15 @@ export default function EventDetail() {
                 <div className="h-0 self-stretch outline outline-1 outline-offset-[-0.50px] outline-zinc-200"></div>
             </div>
 
-            <div className="w-full flex justify-center">
-                <button className="w-full max-w-[1064px] py-6 flex flex-col items-center gap-2.5">
-                    <div className="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-700 rounded-lg outline outline-2 outline-offset-[-1.80px] outline-amber-500 inline-flex justify-center items-center gap-2.5 overflow-hidden">
-                        <div className="text-white text-base font-bold">Comprar boleto</div>
-                    </div>
-                </button>
-            </div>
+            <BuyTicketEventInformation
+                name={event.artist}
+                price={event.price}
+                available={event.availableTickets}
+                venue={event.venue}
+                location={event.location}
+                datetime={event.datetime}
+                image={event.image}
+            />
         </div>
     );
 }
